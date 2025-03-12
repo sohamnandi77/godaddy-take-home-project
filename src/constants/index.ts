@@ -31,12 +31,14 @@ export const REPOSITORY_SORT_DIRECTION = ["asc", "desc"] as const;
 export const REPOSITORY_PER_PAGE = [5, 10, 20, 50] as const;
 
 export const PROGRAMMING_LANGUAGES_COLORS = {
+  "C#": "#889E73",
   "C++": "#60A5FA",
   "Objective-C": "#8B5CF6",
   C: "#FBBF24",
   CSS: "#38BDF8",
   CSharp: "#22C55E",
   Dart: "#06B6D4",
+  Dockerfile: "#8174A0",
   EJS: "#D946EF",
   Go: "#14B8A6",
   HTML: "#6B7280",
@@ -45,7 +47,7 @@ export const PROGRAMMING_LANGUAGES_COLORS = {
   Kotlin: "#4F46E5",
   PHP: "#A855F7",
   Perl: "#64748B",
-  Python: "#3B82F6",
+  Python: "#BF3131",
   Ruby: "#EC4899",
   Rust: "#FB7185",
   SQL: "#34D399",

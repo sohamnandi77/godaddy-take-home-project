@@ -34,6 +34,7 @@ import {
   DEFAULT_REPOSITORY_SORT_BY,
   DEFAULT_REPOSITORY_SORT_DIRECTION,
   DEFAULT_REPOSITORY_TYPE,
+  PROGRAMMING_LANGUAGES_COLORS,
   REPOSITORY_PER_PAGE,
   REPOSITORY_SORT_BY,
   REPOSITORY_SORT_DIRECTION,
@@ -90,7 +91,18 @@ const columns: ColumnDef<Repository>[] = [
   {
     header: "Top Language",
     accessorKey: "language",
-    cell: ({ row }) => <div>{row.original.language ?? "--"}</div>,
+    cell: ({ row }) => (
+      <div
+        style={{
+          color:
+            PROGRAMMING_LANGUAGES_COLORS[
+              row.original.language as keyof typeof PROGRAMMING_LANGUAGES_COLORS
+            ] ?? "#6B7280",
+        }}
+      >
+        {row.original.language ?? "--"}
+      </div>
+    ),
   },
   {
     header: "Forks",
