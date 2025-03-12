@@ -21,7 +21,7 @@ export const RepositoryDetail = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <Link to="/">
-            <Button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-300 dark:hover:bg-blue-800 transition duration-150 ease-in-out">
+            <Button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-100 hover:bg-blue-200 dark:bg-blue-900  dark:hover:bg-blue-800 transition duration-150 ease-in-out">
               <svg
                 className="mr-2 h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"

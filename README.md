@@ -5,7 +5,7 @@
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the Project](#running-the-project)
-- [Project Structure](#project-structure)
+- [Major Features](#major-features)
 - [Future Improvements](#future-improvements)
 - [Technology Choices](#technology-choices)
 - [Library Selection Rationale](#library-selection-rationale)
@@ -52,19 +52,15 @@ pnpm build
 pnpm preview
 ```
 
-## Project Structure
+## Major Features
 
-```
-src/           # Source code
-  api/         # API Fetch hooks
-  components/  # React components
-  constants/   # Constants
-  lib/         # Utility functions and shared code
-  routes/      # Application routes & Pages
-  types/       # Types
-  utils/       # Utility functions
-public/        # Static assets
-```
+- **API Caching**: Efficiently caches API responses to reduce the number of requests and improve performance.
+- **Pagination**: Enables users to navigate through large datasets with ease, improving user experience.
+- **Keyboard Shortcuts for Navigation**: Enhances accessibility and efficiency by allowing users to navigate using keyboard shortcuts.
+- **Dark Mode**: Provides a user-friendly dark mode option for better visibility in low-light conditions.
+- **Mobile Responsive**: Ensures the application is fully functional and visually appealing on various screen sizes.
+- **Accessibility**: Implements best practices for accessibility, ensuring the application is usable by everyone.
+- **Shareable URL**: Uses the URL as a state manager, allowing users to share specific states of the application easily.
 
 ## Future Improvements
 
