@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig", // EditorConfig
+    "bradlc.vscode-tailwindcss", // Tailwind CSS IntelliSense
+    "dbaeumer.vscode-eslint", // eslint plugin
+    "esbenp.prettier-vscode" // prettier plugin
+  ]
+}
