@@ -1,3 +1,4 @@
+import { PROGRAMMING_LANGUAGES_COLORS } from "@/constants";
 import { cn } from "@/lib/utils";
 import {
   calculateLanguagePercentages,
@@ -8,6 +9,7 @@ import {
 import { Indicator, Root } from "@radix-ui/react-progress";
 import { Await, getRouteApi, Link } from "@tanstack/react-router";
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
 
 export const RepositoryDetail = () => {
   const routeApi = getRouteApi("/$repo");
@@ -79,7 +81,7 @@ export const RepositoryDetail = () => {
                 Description
               </h3>
               <div className="mt-4 text-gray-600 dark:text-gray-300 space-y-4">
-                {repository?.description}
+                {repository?.description ?? "--"}
               </div>
             </div>
           </div>
@@ -103,7 +105,7 @@ export const RepositoryDetail = () => {
                     Stars
                   </dt>
                   <dd className="mt-1 text-3xl font-semibold text-gray-900 dark:text-white">
-                    {repository.stargazers_count}
+                    {repository.stargazers_count ?? 0}
                   </dd>
                 </div>
 
@@ -124,7 +126,7 @@ export const RepositoryDetail = () => {
                     Forks
                   </dt>
                   <dd className="mt-1 text-3xl font-semibold text-gray-900 dark:text-white">
-                    {repository.forks_count}
+                    {repository.forks_count ?? 0}
                   </dd>
                 </div>
 
@@ -145,7 +147,7 @@ export const RepositoryDetail = () => {
                     Open Issues
                   </dt>
                   <dd className="mt-1 text-3xl font-semibold text-gray-900 dark:text-white">
-                    {repository.open_issues_count}
+                    {repository.open_issues_count ?? 0}
                   </dd>
                 </div>
 
@@ -167,7 +169,7 @@ export const RepositoryDetail = () => {
                     Watchers
                   </dt>
                   <dd className="mt-1 text-3xl font-semibold text-gray-900 dark:text-white">
-                    {repository.watchers_count}
+                    {repository.watchers_count ?? 0}
                   </dd>
                 </div>
               </dl>
@@ -180,37 +182,55 @@ export const RepositoryDetail = () => {
               <div className="mt-5 space-y-6">
                 <Await
                   promise={languagesPromise}
-                  fallback={<div>Loading...</div>}
+                  fallback={Array.from({ length: 3 }).map((_, i) => (
+                    <>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                          <Skeleton key={i} className="h-4 w-15" />
+                        </span>
+                        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                          <Skeleton key={i} className="h-4 w-10" />
+                        </span>
+                      </div>
+                      <Skeleton key={i} className="h-2 w-full" />
+                    </>
+                  ))}
                 >
                   {(data) => {
                     const languagePercentages =
                       calculateLanguagePercentages(data);
-                    return languagePercentages.map((language) => (
-                      <div key={language.language}>
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                            {language.language}
-                          </span>
-                          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                            {language.percentage}%
-                          </span>
+                    return languagePercentages.map(
+                      ({ language, percentage }) => (
+                        <div key={language}>
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                              {language}
+                            </span>
+                            <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                              {percentage}%
+                            </span>
+                          </div>
+                          <Root
+                            data-slot="progress"
+                            className={cn(
+                              "bg-primary/20 relative h-2 w-full overflow-hidden rounded-full"
+                            )}
+                          >
+                            <Indicator
+                              data-slot="progress-indicator"
+                              className="h-full w-full flex-1 transition-all"
+                              style={{
+                                transform: `translateX(-${100 - (parseFloat(percentage) || 0)}%)`,
+                                backgroundColor:
+                                  PROGRAMMING_LANGUAGES_COLORS[
+                                    language as keyof typeof PROGRAMMING_LANGUAGES_COLORS
+                                  ] ?? "#6B7280",
+                              }}
+                            />
+                          </Root>
                         </div>
-                        <Root
-                          data-slot="progress"
-                          className={cn(
-                            "bg-primary/20 relative h-2 w-full overflow-hidden rounded-full"
-                          )}
-                        >
-                          <Indicator
-                            data-slot="progress-indicator"
-                            className="bg-yellow-400 h-full w-full flex-1 transition-all"
-                            style={{
-                              transform: `translateX(-${100 - (parseFloat(language.percentage) || 0)}%)`,
-                            }}
-                          />
-                        </Root>
-                      </div>
-                    ));
+                      )
+                    );
                   }}
                 </Await>
               </div>

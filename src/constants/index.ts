@@ -29,3 +29,27 @@ export const REPOSITORY_SORT_BY = [
 export const REPOSITORY_SORT_DIRECTION = ["asc", "desc"] as const;
 
 export const REPOSITORY_PER_PAGE = [5, 10, 20, 50] as const;
+
+export const PROGRAMMING_LANGUAGES_COLORS = {
+  "C++": "#60A5FA",
+  "Objective-C": "#8B5CF6",
+  C: "#FBBF24",
+  CSS: "#38BDF8",
+  CSharp: "#22C55E",
+  Dart: "#06B6D4",
+  EJS: "#D946EF",
+  Go: "#14B8A6",
+  HTML: "#6B7280",
+  Java: "#EF4444",
+  JavaScript: "#FBBF24",
+  Kotlin: "#4F46E5",
+  PHP: "#A855F7",
+  Perl: "#64748B",
+  Python: "#3B82F6",
+  Ruby: "#EC4899",
+  Rust: "#FB7185",
+  SQL: "#34D399",
+  Shell: "#84CC16",
+  Swift: "#F97316",
+  TypeScript: "#2563EB",
+} as const;
