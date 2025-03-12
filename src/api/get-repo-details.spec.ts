@@ -2,11 +2,10 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
   getRepositoryDetails,
   getRepositoryLanguages,
-} from "./get-repo-details"; // Adjust the import path as necessary
+} from "./get-repo-details";
 
 describe("API Calls", () => {
   beforeEach(() => {
-    // Reset the fetch mock before each test
     vi.clearAllMocks();
   });
 
@@ -16,10 +15,8 @@ describe("API Calls", () => {
         id: 123,
         name: "example-repo",
         full_name: "godaddy/example-repo",
-        // Add other fields as necessary
       };
 
-      // Mock the fetch response
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         json: vi.fn().mockResolvedValue(mockResponse),
@@ -76,7 +73,6 @@ describe("API Calls", () => {
         TypeScript: 50,
       };
 
-      // Mock the fetch response
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,
         json: vi.fn().mockResolvedValue(mockResponse),

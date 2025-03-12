@@ -1,8 +1,4 @@
-Here's the enhanced README.md in Markdown format with the requested Table of Contents and additional information:
-
 # GoDaddy Take-Home Project
-
-A modern web application built with React, TypeScript, and Vite, featuring a robust tech stack for optimal development experience and user interface.
 
 ## Table of Contents
 
@@ -24,7 +20,7 @@ A modern web application built with React, TypeScript, and Vite, featuring a rob
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/sohamnandi77/godaddy-take-home-project
 cd godaddy-take-home-project
 ```
 
@@ -79,6 +75,7 @@ Due to time constraints, the following features were omitted but would be valuab
 - **Enhanced Error States**: Implementation of proper error handling for scenarios like no data, rate limiting, and various API errors.
 - **Loading Skeletons**: Shimmer effects for better user experience during loading states.
 - **Card View for Repositories**: Adding an alternative card view and a toggle to switch between table and card views.
+- **CI/CD Pipeline**: Automated testing and deployment pipelines would ensure code quality and streamline the deployment process.
 - **Language Color Coding**: Visual indicators for programming languages used in repositories.
 - **Contributors Section**: Detailed view of contributors in the repository details view.
 

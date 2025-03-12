@@ -34,7 +34,6 @@ export const getRepositoryLanguages = async (repo: string) => {
     );
 
     if (!response.ok) {
-      // Handle different HTTP status codes
       if (response.status === 404) {
         throw new Error("Repository not found");
       } else if (response.status === 403) {

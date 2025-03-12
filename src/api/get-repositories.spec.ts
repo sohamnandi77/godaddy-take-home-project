@@ -1,9 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { getRepositories } from "./get-repositories"; // Adjust the import path as necessary
+import { getRepositories } from "./get-repositories";
 
 describe("getRepositories", () => {
   beforeEach(() => {
-    // Reset the fetch mock before each test
     vi.clearAllMocks();
   });
 
@@ -20,9 +19,9 @@ describe("getRepositories", () => {
     });
 
     const searchParams = {
-      type: "all" as const, // Use 'as const' to ensure the type matches
-      sort: "created" as const, // Use 'as const' to ensure the type matches
-      direction: "asc" as const, // Use 'as const' to ensure the type matches
+      type: "all" as const,
+      sort: "created" as const,
+      direction: "asc" as const,
       page: 1,
       per_page: 30,
     };
