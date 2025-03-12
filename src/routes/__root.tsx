@@ -13,6 +13,11 @@ export const Route = createRootRoute({
                 to="/"
                 className="flex-shrink-0 flex items-center text-primary font-extrabold"
               >
+                <img
+                  className="h-8 w-8 mr-2"
+                  src="https://avatars.githubusercontent.com/u/1406546?v=4"
+                  alt="GoDaddy Logo"
+                />
                 GoDaddy Repos
               </Link>
             </div>

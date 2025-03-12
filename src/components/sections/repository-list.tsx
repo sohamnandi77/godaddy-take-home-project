@@ -228,8 +228,8 @@ export function RepositoryList() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
         {/* Filters */}
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex gap-3">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-wrap gap-3">
             {/* Filter By Type */}
             <Select
               value={routeSearch.type ?? DEFAULT_REPOSITORY_TYPE}
