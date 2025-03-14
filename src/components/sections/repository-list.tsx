@@ -193,7 +193,8 @@ export function RepositoryList() {
     manualFiltering: true,
     manualPagination: true,
     enableSortingRemoval: false,
-    rowCount: TOTAL_REPOSITORY_COUNT,
+    rowCount:
+      TOTAL_REPOSITORY_COUNT[routeSearch.type ?? DEFAULT_REPOSITORY_TYPE],
     state: {
       sorting: [
         {
@@ -239,6 +240,8 @@ export function RepositoryList() {
                   search: (prev) => ({
                     ...prev,
                     type: value as RepositorySearch["type"],
+                    page: DEFAULT_PAGE_INDEX,
+                    per_page: DEFAULT_PER_PAGE_SIZE,
                   }),
                 });
               }}
@@ -463,7 +466,7 @@ export function RepositoryList() {
         </div>
 
         {/* Pagination */}
-        <div className="flex items-center justify-between gap-8">
+        <div className="flex items-center justify-between gap-3 md:gap-5">
           {/* Results per page */}
           <div className="flex items-center gap-3">
             <Label htmlFor={id} className="max-sm:sr-only">
@@ -505,13 +508,21 @@ export function RepositoryList() {
                   1}
                 -
                 {Math.min(
-                  TOTAL_REPOSITORY_COUNT,
+                  TOTAL_REPOSITORY_COUNT[
+                    routeSearch?.type ?? DEFAULT_REPOSITORY_TYPE
+                  ],
                   (table.getState().pagination.pageIndex + 1) *
                     table.getState().pagination.pageSize
                 )}
               </span>{" "}
               of{" "}
-              <span className="text-foreground">{TOTAL_REPOSITORY_COUNT}</span>
+              <span className="text-foreground">
+                {
+                  TOTAL_REPOSITORY_COUNT[
+                    routeSearch?.type ?? DEFAULT_REPOSITORY_TYPE
+                  ]
+                }
+              </span>
             </p>
           </div>
 
