@@ -211,10 +211,11 @@ export function RepositoryList() {
   useEffect(() => {
     // Add Keyboard Navigation For Pagination
     const handleKeyDown = (event: KeyboardEvent) => {
-      event.preventDefault();
       if (event.key === "ArrowLeft" && table.getCanPreviousPage()) {
+        event.preventDefault();
         table.previousPage();
       } else if (event.key === "ArrowRight" && table.getCanNextPage()) {
+        event.preventDefault();
         table.nextPage();
       }
     };
